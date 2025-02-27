@@ -116,10 +116,10 @@ x = x + y;
 
 //send output
 if(x == ''){x='_';} //fix issue with a keyboard moving around in response to null input
-document.getElementById("demo").innerHTML = x;
+document.getElementById("result").innerHTML = x;
 //debug stuff
 document.getElementById("flag").innerHTML = flag;
-document.getElementById("increment").innerHTML = increment;
+//document.getElementById("increment").innerHTML = increment;
 document.getElementById("intermediate_0").innerHTML = intermediates[increment-3];
 document.getElementById("intermediate_1").innerHTML = intermediates[increment-2];
 document.getElementById("intermediate_2").innerHTML = intermediates[increment-1];
@@ -158,29 +158,25 @@ a:hover, a:active {
 <h2>Calculator</h2>
 
 <!-- start debug display stuff, should be commented out for final implementation -->
-<!--
-<p>Flag:</p>
 
+<p>Operation:</p>
 
 <p id="flag">_ </p>
-
+<!--
 <p>Increment:</p>
 <p id="increment">_ </p>
-
-<p>intermediate_0:</p>
+-->
 <p id="intermediate_0">_ </p>
 
-<p>intermediate_1:</p>
 <p id="intermediate_1">_ </p>
 
-<p>intermediate_2:</p>
 <p id="intermediate_2">_ </p>
--->
+
 
 <!-- end debug display stuff, should be commented out for final implementation -->
 
 <p>Result:</p>
-<p id="demo">_ </p>
+<p id="result">_ </p>
 
 
 <!-- the function of the spaces is to make string processing easier-->
