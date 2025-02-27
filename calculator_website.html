@@ -12,40 +12,40 @@ function myFunction(y) {
 if(x == '_'){x='';} //fix issue with a keyboard moving around in response to null input
 //if ADD detected
 if(y == ' + '){
-intermediates[increment]=Number(x);
-x = ''; //reset string value
-flag = 'ADD';
-increment++;
-y=''; //zero out input field
+  intermediates[increment]=Number(x);
+  x = ''; //reset string value
+  flag = 'ADD';
+  increment++;
+  y=''; //zero out input field
 }
 
 //if SUB detected set SUB flag, increment
 if(y == ' - '){
-intermediates[increment]=Number(x);
-x = ''; //reset string value
-flag = 'SUB';
-increment++;
-y=''; //zero out input field
+  intermediates[increment]=Number(x);
+  x = ''; //reset string value
+  flag = 'SUB';
+  increment++;
+  y=''; //zero out input field
 }
 
 
 //if SUB detected set SUB flag, increment
 if(y == ' / '){
-intermediates[increment]=Number(x);
-x = ''; //reset string value
-flag = 'DIV';
-increment++;
-y=''; //zero out input field
+  intermediates[increment]=Number(x);
+  x = ''; //reset string value
+  flag = 'DIV';
+  increment++;
+  y=''; //zero out input field
 }
 
 
 //if SUB detected set SUB flag, increment
 if(y == ' * '){
-intermediates[increment]=Number(x);
-x = ''; //reset string value
-flag = 'MULT';
-increment++;
-y=''; //zero out input field
+  intermediates[increment]=Number(x);
+  x = ''; //reset string value
+  flag = 'MULT';
+  increment++;
+  y=''; //zero out input field
 }
 
 if(y == 'CLS') {x='';y='';}
@@ -64,46 +64,46 @@ if(y == 'LENGTH') {x=x.length;y='';}
 if(y == 'ENTER') {
 //if ADD flag then add
 if(flag == 'ADD') {
-intermediates[increment]=Number(x);
-x = ''; //reset string value
-increment++;
+  intermediates[increment]=Number(x);
+  x = ''; //reset string value
+  increment++;
 let result = intermediates[increment-1] + intermediates[increment-2]; //add last two values
-x = result; //assign result to x for future use
-y = ''; //zero out input field
-flag = 'NONE'; //reset flag
+  x = result; //assign result to x for future use
+  y = ''; //zero out input field
+  flag = 'NONE'; //reset flag
 }
 
 //if SUB flag then subtract
 if(flag == 'SUB') {
-intermediates[increment]=Number(x);
-x = ''; //reset string value
-increment++;
+  intermediates[increment]=Number(x);
+  x = ''; //reset string value
+  increment++;
 let result = intermediates[increment-2] - intermediates[increment-1]; //add last two values
-x = result; //assign result to x for future use
-y = ''; //zero out input field
-flag = 'NONE'; //reset flag
+  x = result; //assign result to x for future use
+  y = ''; //zero out input field
+  flag = 'NONE'; //reset flag
 }
 
 //if DIV flag then divide
 if(flag == 'DIV') {
-intermediates[increment]=Number(x);
-x = ''; //reset string value
-increment++;
+  intermediates[increment]=Number(x);
+  x = ''; //reset string value
+  increment++;
 let result = intermediates[increment-2] / intermediates[increment-1]; //add last two values
-x = result; //assign result to x for future use
-y = ''; //zero out input field
-flag = 'NONE'; //reset flag
+  x = result; //assign result to x for future use
+  y = ''; //zero out input field
+  flag = 'NONE'; //reset flag
 }
 
 //if MULT flag then multiply
 if(flag == 'MULT') {
-intermediates[increment]=Number(x);
-x = ''; //reset string value
-increment++;
+  intermediates[increment]=Number(x);
+  x = ''; //reset string value
+  increment++;
 let result = intermediates[increment-2] * intermediates[increment-1]; //add last two values
-x = result; //assign result to x for future use
-y = ''; //zero out input field
-flag = 'NONE'; //reset flag
+  x = result; //assign result to x for future use
+  y = ''; //zero out input field
+  flag = 'NONE'; //reset flag
 }
 
 
