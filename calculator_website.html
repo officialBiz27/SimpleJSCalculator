@@ -6,7 +6,8 @@ let x=''; //initialize x, a character array
 let arrayLength = 20; // this limits the user to 20 numbers
 let intermediates = new Array(arrayLength); //initialize array
 let increment = 0;
-let flag = 'NONE'; //flag is changed to indicate pending operation, to be executed when ENTER recieved
+let flag = 'NONE'; //flag is changed to indicate pending operation, to be executed when ENTER
+ recieved
 function myFunction(y) {
 
 if(x == '_'){x='';} //fix issue with a keyboard moving around in response to null input
@@ -18,6 +19,8 @@ if(y == ' + '){
   increment++;
   y=''; //zero out input field
 }
+
+if(y == 'PI'){x='3.141592653589793';y='';}
 
 //if SUB detected set SUB flag, increment
 if(y == ' - '){
@@ -62,52 +65,53 @@ if(y == 'LENGTH') {x=x.length;y='';}
 
 //if ENTER detected evaluate
 if(y == 'ENTER') {
-//if ADD flag then add
-if(flag == 'ADD') {
-  intermediates[increment]=Number(x);
-  x = ''; //reset string value
-  increment++;
-let result = intermediates[increment-1] + intermediates[increment-2]; //add last two values
-  x = result; //assign result to x for future use
-  y = ''; //zero out input field
-  flag = 'NONE'; //reset flag
+  //if ADD flag then add
+  if(flag == 'ADD') {
+    intermediates[increment]=Number(x);
+    x = ''; //reset string value
+    increment++;
+  let result = intermediates[increment-1] + intermediates[increment-2]; //add last two values
+    x = result; //assign result to x for future use
+    y = ''; //zero out input field
+    flag = 'NONE'; //reset flag
+  }
+
+  //if SUB flag then subtract
+  if(flag == 'SUB') {
+    intermediates[increment]=Number(x);
+    x = ''; //reset string value
+    increment++;
+  let result = intermediates[increment-2] - intermediates[increment-1]; //add last two values
+    x = result; //assign result to x for future use
+    y = ''; //zero out input field
+    flag = 'NONE'; //reset flag
+  }
+
+  //if DIV flag then divide
+  if(flag == 'DIV') {
+    intermediates[increment]=Number(x);
+    x = ''; //reset string value
+    increment++;
+  let result = intermediates[increment-2] / intermediates[increment-1]; //divide last two values
+    x = result; //assign result to x for future use
+    y = ''; //zero out input field
+    flag = 'NONE'; //reset flag
+  }
+
+  //if MULT flag then multiply
+  if(flag == 'MULT') {
+    intermediates[increment]=Number(x);
+    x = ''; //reset string value
+    increment++;
+  let result = intermediates[increment-2] * intermediates[increment-1]; //multiply last two values
+    x = result; //assign result to x for future use
+    y = ''; //zero out input field
+    flag = 'NONE'; //reset flag
+  }
+
+
 }
 
-//if SUB flag then subtract
-if(flag == 'SUB') {
-  intermediates[increment]=Number(x);
-  x = ''; //reset string value
-  increment++;
-let result = intermediates[increment-2] - intermediates[increment-1]; //add last two values
-  x = result; //assign result to x for future use
-  y = ''; //zero out input field
-  flag = 'NONE'; //reset flag
-}
-
-//if DIV flag then divide
-if(flag == 'DIV') {
-  intermediates[increment]=Number(x);
-  x = ''; //reset string value
-  increment++;
-let result = intermediates[increment-2] / intermediates[increment-1]; //add last two values
-  x = result; //assign result to x for future use
-  y = ''; //zero out input field
-  flag = 'NONE'; //reset flag
-}
-
-//if MULT flag then multiply
-if(flag == 'MULT') {
-  intermediates[increment]=Number(x);
-  x = ''; //reset string value
-  increment++;
-let result = intermediates[increment-2] * intermediates[increment-1]; //add last two values
-  x = result; //assign result to x for future use
-  y = ''; //zero out input field
-  flag = 'NONE'; //reset flag
-}
-
-
-}
 //end ENTER code
 
 
@@ -193,7 +197,7 @@ a:hover, a:active {
 <button onclick="myFunction('4')">4</button>
 <button onclick="myFunction('5')">5</button>
 <button onclick="myFunction('6')">6</button>
-<!-- <button onclick="myFunction(' ) ')">)</button> -->
+<button onclick="myFunction('PI')">&#960</button>
 <br>
 <button onclick="myFunction('7')">7</button>
 <button onclick="myFunction('8')">8</button>
