@@ -22,6 +22,13 @@ if(y == ' + '){
 
 if(y == 'PI'){x='3.141592653589793';y='';}
 
+if(y == 'SQR'){
+let c = Number(x); //turn X into a number, c
+c = c * c; //square c
+x = c.toString();
+y = ''; //reset input string
+}
+
 //if SUB detected set SUB flag, increment
 if(y == ' - '){
   intermediates[increment]=Number(x);
@@ -65,6 +72,7 @@ if(y == 'LENGTH') {x=x.length;y='';}
 
 //if ENTER detected evaluate
 if(y == 'ENTER') {
+  y=''; //make sure "ENTER" doesn't end up in output
   //if ADD flag then add
   if(flag == 'ADD') {
     intermediates[increment]=Number(x);
@@ -192,7 +200,7 @@ a:hover, a:active {
 <button onclick="myFunction('1')">1</button>
 <button onclick="myFunction('2')">2</button>
 <button onclick="myFunction('3')">3</button>
-<!-- <button onclick="myFunction(' . ')">.</button> -->
+<button onclick="myFunction('SQR')">X<sup>2</sup></button>
 <br>
 <button onclick="myFunction('4')">4</button>
 <button onclick="myFunction('5')">5</button>
